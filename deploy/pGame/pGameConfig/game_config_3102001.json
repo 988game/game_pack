@@ -67,7 +67,7 @@
                 "rob_banker_timeout":5,
                 "bet_timeout":5,
                 "open_timeout":5,
-                "reward_timeout":10,
+                "reward_timeout":8,
                 "rob_items":[
                     0,
                     1,
