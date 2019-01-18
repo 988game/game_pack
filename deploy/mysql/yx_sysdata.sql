@@ -44,13 +44,8 @@ CREATE TABLE `id_factory` (
 --
 
 INSERT INTO `id_factory` (`id`, `table_name`, `current_id`, `inc_count`, `start_id`, `need_rand`, `no_good`, `black_array`) VALUES
-(7, 'Session', 63001, 1000, 1, 0, 0, ''),
-(8, 'RNO', 126100, 1000, 100100, 1, 0, ''),
 (9, 'jc_user', 101000, 1000, 100000, 1, 1, ''),
 (10, 'jc_msg_id', 18699001, 1000, 1, 0, 1, ''),
-(11, 'orderID', 99892000, 1000, 99880000, 0, 0, ''),
-(12, 'AgentShid', 130500, 2000, 100500, 1, 1, ''),
-(13, 'groupId', 110000, 10000, 10000, 0, 0, ''),
 (14, 'jc_invite_code', 100910, 100, 100000, 1, 0, '');
 
 --

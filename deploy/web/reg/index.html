@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width"/>
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>注册账号</title>
+
+<link rel="stylesheet" href="css/normalize.css" type="text/css" />
+
+<style>
+/* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+body {
+	font-family: "Open Sans", sans-serif;
+	height: 100%;
+	background: url("img/reg_bg.png");
+	background-size: cover;
+}
+
+* {
+  	box-sizing: border-box;
+}
+
+.font-color1 {
+	color: #ee8d2f;
+}
+
+.font-color2 {
+	color: #6699dd;
+}
+
+.font-color3 {
+	color: rgb(2, 223, 2);
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	min-height: 100%;
+	/* padding: 20px; */
+	/* background: rgba(4, 40, 68, 0.85); */
+}
+
+.logo {
+	width: 180px;
+	height: 80px;
+	margin-top: 10%; 
+	visibility: hidden;
+}
+
+.login {
+	padding: 0 0 20px 0;
+	width: 100%;
+	max-width: 480px;
+	min-height: 420px;
+	background: rgba(34,34,34,0.8);				/*debug 部分浏览器不支持带通道的#，如#222222cc */
+	position: relative;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+	z-index: 1;
+	margin-top: 5%; 
+}
+
+.login .title {
+	line-height: 0px;
+	text-align: center;
+}
+
+.login .title .title-img {
+	height: 60px;
+	z-index: 3;
+}
+
+.login .title .title-bg {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 48px;
+	z-index: 2;
+}
+
+.login .acition-area {
+	width: 100%;
+	padding: 0px 20px 5px 10px;
+}
+
+.login .acition-area .info-div {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.title-span {
+	width: 5em;
+	text-align: right;
+	margin-right: 3px;
+}
+
+.tips {
+	line-height: 0px;
+	font-size: 8px;
+	padding-left: 7em; 
+}
+
+.info-div input {
+	flex: 1;
+	width: 100%;
+	border: 1px solid rgba(255,255,255,0.35);
+	border-radius: 2px;
+	background: rgba(0,0,0,0.2);
+	color: #dadef8;
+	margin: 0 3px;
+	padding-left: 3px;
+	height: 35px;
+	z-index: 3;
+}
+
+.info-div input:focus {
+	outline: none;
+	color: #717799;
+}
+
+.info-div select {
+	width: 4.5em;
+	height: 35px;
+	flex: none;
+	z-index: 3;
+	background: rgba(0,0,0,0.2);
+	color: #dadef8;
+	border: 1px solid rgba(255,255,255,0.35);
+}
+
+option {
+	/* appearance:none; */
+	font-size: 8px;
+	z-index: 3;
+	background: rgb(34, 34, 34);
+	color: #dadef8;
+}
+
+
+.info-div .time-out{
+	visibility: hidden;
+	margin-right: 5px;
+}
+
+.info-div .btn-code {
+	width: 80px;
+	height: 35px;
+	background-image: url("img/reg_02.png");
+	background-size: 100% 100%;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.login .action {
+	position: absolute;
+	bottom: 50px;
+	text-align: center;
+	width: 100%;
+}
+
+.login .action .btn-req {
+	margin: 0 auto;
+	width: 150px;
+	height: 60px;
+	background-image: url("img/reg_04.png");
+	background-size: 100% 100%;
+	display: block;
+	cursor: pointer;
+}
+
+.login .tip {
+	font-size: 1.0em;
+	text-decoration: none;
+	position: absolute;
+	left: 0;
+	bottom: 5px;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 10px;
+	display: none;
+}
+
+.login .tip .url-link {
+	text-decoration: underline;
+	cursor: pointer;		/*不加cursor在ios上点击无反应*/
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99;
+}
+
+.modal .panel {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 40%;
+	width: 100%;
+	margin: auto;
+	min-width: 320px;
+	max-width: 400px;
+	padding: 0 15px;
+}
+
+.modal .panel .bg {
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	height: 120px;
+	background: rgba(33,63,90,0.5);
+}
+
+.modal .panel .bg .succ-info {
+	position: absolute;
+	margin: 0 auto;
+	width: 100%;
+	left: 0;
+	top: 45px;
+}
+
+.modal .panel .bg .light {
+	position: absolute;
+	margin: 0 auto;
+	width: 100%;
+	left: 0;
+	top: -4.5%;
+}
+
+.modal .panel .btn-list{
+	display: flex;
+}
+
+.modal .panel .btn-list .btn-login {
+	margin: 40px auto;
+	width: 150px;
+	height: 50px;
+	background-image: url("img/reg_11.png");
+	background-size: 100% 100%;
+	display: block;
+	cursor: pointer;
+}
+
+.modal .panel .btn-list .btn-down {
+	margin: 40px auto;
+	width: 150px;
+	height: 50px;
+	background-image: url("img/reg_12.png");
+	background-size: 100% 100%;
+	display: block;
+	cursor: pointer;
+}
+
+.pop-loading {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99;
+}
+
+.pop-loading .content {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+}
+
+.k-ring {
+	width: 10px;
+	height: 10px;
+	margin: 0 auto;
+	padding: 15px;
+	border: 2px dashed #ffffff;
+	border-radius: 50%;
+}
+
+@keyframes k-loadingF {
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.k-ring-1 {
+	animation: k-loadingF 1.5s 0s infinite;
+}
+
+.gray {     
+	-webkit-filter: grayscale(100%);   
+	-moz-filter: grayscale(100%);  
+	-ms-filter: grayscale(100%);   
+	-o-filter: grayscale(100%);     
+	filter: grayscale(100%); 	     
+	filter: gray;
+}
+
+</style>
+    
+<script src="js/prefixfree.min.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<img class="logo" src=""/>
+		<div class="login">
+			<div class="title">
+				<img class="title-img" src="img/reg_09.png" />
+				<img class="title-bg" src="img/reg_01.png" />
+			</div>
+
+			<div class="acition-area">
+				<div class="info-div">
+					<div class="title-span font-color2">
+						<span class="font-color1">*</span>手机号码
+					</div>
+					<select id="AreaCode-Select">
+						<!-- <option value ="volvo">Volvo</option> -->
+					</select>
+					<input type="text" placeholder="请输入注册手机号" autofocus id="phone"/>
+				</div>
+				<div class="tips font-color1">*国际号码请修改国家区号*</div>
+				<div class="info-div">
+					<div class="title-span font-color2">
+						<span class="font-color1">*</span>验证码
+					</div>
+					<input type="text" placeholder="请输入验证码" autofocus id="verifyCode"/>
+					<div class="time-out font-color2">(60)</div>
+					<div class="btn-code"></div>
+				</div>
+				<div class="info-div">
+					<div class="title-span font-color2">
+						<span class="font-color1">*</span>设置密码
+					</div>
+					<input type="password" placeholder="请设置密码" autofocus id="pwd"/>
+				</div>
+				<div class="info-div">
+					<div class="title-span font-color2">
+						<span class="font-color1">*</span>用户昵称
+					</div>
+					<input type="text" placeholder="请输入昵称" autofocus id="name"/>
+				</div>
+				<div class="info-div">
+					<div class="title-span font-color2">推荐人ID</div>
+					<input type="text" placeholder="请输入推荐人ID（选填）" autofocus id="refereeID"/>
+				</div>
+			</div>
+
+			<div class="action">
+				<div class="btn-req">
+				</div>
+			</div>
+
+			<div class="tip">
+				<span class="font-color2">已有账号,</span>
+				<span class="url-link font-color1">请点击这里</span>
+			</div>
+		</div>
+		<div class="modal">
+			<div class="panel">
+				<div class="bg">
+					<img class="light" src="img/reg_01.png" />
+					<div class="succ-info font-color3">恭喜您注册账户成功！</div>
+				</div>
+				<div class="btn-list">
+					<div class="btn-login"> </div>
+					<div class="btn-down"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="pop-loading">
+			<div class="content">
+				<div class="k-ring k-ring-1"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src='js/zepto.min.js'></script>
+	<script type="text/javascript" src='js/md5.min.js'></script>
+	<script type="text/javascript" src="js/countrycode.js?v=1.0.0"></script>
+	<script type="text/javascript" src="js/index.js?v=1.0.0"></script>
+	<script type="text/javascript" src="js/import.js?v=1.0.0"></script>
+	<script src="https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+	<script src="https://cdn.bootcss.com/crypto-js/3.1.9-1/aes.min.js"></script>
+</body>
+</html>
