@@ -1,0 +1,10 @@
+title = "cporder"
+
+NextQhSpc = 1    ##期号转变定时时间
+
+OrderLimit = 30     ##每次获取订单数量
+DbUpdateCount = 10000   ##数据库每次处理的数量
+
+[Log]
+Level="dbg"
+TraceAllUid=true

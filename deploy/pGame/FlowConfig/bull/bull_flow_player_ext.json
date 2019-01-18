@@ -1,0 +1,105 @@
+{
+  "name": "player root ext",
+  "control_type": "selector",
+  "select_type": "event",
+  "child": [
+    {
+      "name": "DoReEnter",
+      "control_type": "sequence",
+      "case": "*en2*",
+      "child": [
+        {
+          "name": "SendEnterCmd",
+          "control_type": "step",
+          "do_script": "bull_flow_player.SendEnterCmd"
+        },
+        {
+          "name": "SendSyncBegin",
+          "control_type": "step",
+          "do_script": "bull_flow_player_ext.SendSyncBegin"
+        },
+        {
+          "name": "SelectPlayerStatus",
+          "control_type": "selector",
+          "select_type": "step_return",
+          "select_script_name": "bull_flow_player_ext.SelectPlayerStatus",
+          "child": [
+            {
+              "name": "NotInGame",
+              "control_type": "step",
+              "do_script": "bull_flow_player.EnterInGame",
+              "case": "NotInGame"
+            },
+            {
+              "name": "EnterOnPrepare",
+              "control_type": "step",
+              "case": "Prepare",
+              "do_script": "bull_flow_player_ext.EnterOnPrepare"
+            },
+            {
+              "name": "EnterOnRobBanker",
+              "control_type": "step",
+              "do_script": "bull_flow_player_ext.EnterOnRobBanker",
+              "case": "RobBanker"
+            },
+            {
+              "name": "EnterOnBetting",
+              "control_type": "step",
+              "case": "Betting",
+              "do_script": "bull_flow_player_ext.EnterOnBetting"
+            },
+            {
+              "name": "EnterOnOpenCard",
+              "control_type": "step",
+              "case": "OpenCard",
+              "do_script": "bull_flow_player_ext.EnterOnOpenCard"
+            },
+            {
+              "name": "EnterOnGameEnd",
+              "control_type": "step",
+              "do_script": "bull_flow_player.EnterOnGameEnd",
+              "case": "GameEnd"
+            }
+          ]
+        },
+        {
+          "name": "SendSyncBnd",
+          "control_type": "step",
+          "do_script": "bull_flow_player_ext.SendSyncEnd"
+        },
+        {
+          "name": "SendLastCall",
+          "control_type": "step",
+          "do_script": "bull_flow_player_ext.SendLastCall"
+        }
+      ]
+    },
+    {
+      "name": "DoRefresh",
+      "control_type": "step",
+      "do_script": "bull_flow_player_ext.DoRefresh",
+      "case": "refresh",
+      "event_source": [
+        "1"
+      ]
+    },
+    {
+      "name": "DoAutoPlay",
+      "control_type": "step",
+      "do_script": "bull_flow_player_ext.DoAutoPlay",
+      "case": "*au1*"
+    },
+    {
+      "name": "DoLeave",
+      "control_type": "step",
+      "do_script": "bull_flow_player_ext.DoLeave",
+      "case": "*lee*"
+    },
+    {
+      "name": "DoOffline",
+      "control_type": "step",
+      "do_script": "bull_flow_player_ext.DoOffline",
+      "case": "*fo1*"
+    }
+  ]
+}

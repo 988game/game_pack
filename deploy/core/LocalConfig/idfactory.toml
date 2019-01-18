@@ -1,0 +1,6 @@
+title = "idfactory"
+[_Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+TraceAllUid = true

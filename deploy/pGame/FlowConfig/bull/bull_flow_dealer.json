@@ -1,0 +1,140 @@
+{
+  "name": "DealerRoot",
+  "control_type": "selector",
+  "select_type": "event",
+  "child": [
+    {
+      "name": "onDealerTick",
+      "control_type": "sequence",
+      "case": "dealer.tick",
+      "event_source": [
+        "2"
+      ],
+      "child": [
+        {
+          "name": "CheckAllPlayerFree",
+          "control_type": "step",
+          "do_script": "bull_flow_dealer.CheckAllPlayerFree"
+        },
+        {
+          "name": "SelectStage",
+          "control_type": "selector",
+          "select_type": "step_return",
+          "select_script_name": "bull_flow_dealer.SelectStage",
+          "child": [
+            {
+              "name": "OnAlleady",
+              "control_type": "sequence",
+              "case": "Prepare",
+              "child": [
+                {
+                  "name": "OnGameStart",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.OnGameStart"
+                },
+                {
+                  "name": "Give4Cards",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.Give4Cards"
+                },
+                {
+                  "name": "ChangeToRobBanker",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.ChangeToRobBanker"
+                }
+              ]
+            },
+            {
+              "name": "RobBanker",
+              "control_type": "sequence",
+              "case": "RobBanker",
+              "child": [
+                {
+                  "name": "SelectBanker",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.SelectBanker"
+                },
+                {
+                  "name": "ChangeToBetting",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.ChangeToBetting"
+                }
+              ]
+            },
+            {
+              "name": "Betting",
+              "control_type": "sequence",
+              "case": "Betting",
+              "child": [
+                {
+                  "name": "GiveLastOneCard",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.GiveLastOneCard"
+                },
+                {
+                  "name": "ChangeToOpenCard",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.ChangeToOpenCard"
+                }
+              ]
+            },
+            {
+              "name": "OpenCard",
+              "control_type": "sequence",
+              "case": "OpenCard",
+              "child": [
+                {
+                  "name": "DoComparisonCards",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.DoComparisonCards"
+                },
+                {
+                  "name": "NotifyOpenCards",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.NotifyOpenCards"
+                },
+                {
+                  "name": "DoReward",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.DoReward"
+                },
+                {
+                  "name": "NotifyReward",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.NotifyReward"
+                },
+                {
+                  "name": "SetGameEnd",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.SetGameEnd"
+                },
+                {
+                  "name": "ChangeToGameEnd",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.ChangeToGameEnd"
+                }
+              ]
+            },
+            {
+              "name": "GameEnd",
+              "control_type": "sequence",
+              "case": "GameEnd",
+              "child": [
+                {
+                  "name": "CheckIsCountdown",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.CheckIsCountdown"
+                },
+                {
+                  "name": "ChangeToPrepare",
+                  "control_type": "step",
+                  "do_script": "bull_flow_dealer.ChangeToPrepare"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

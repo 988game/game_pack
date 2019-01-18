@@ -1,0 +1,15 @@
+title = "robot"
+
+BASE_UID = 10000
+STATIC_HEAD_URL = "https://static.iyougame.com/"
+IMAGE_COUNT = 52
+MIN_POINT = 2000000
+MAX_POINT = 8000000
+SMART_MIN_POINT = 50000
+SMART_MAX_POINT = 100000
+
+[_Log]
+Level="dbg"
+TraceAllUid=true
+PrintGpid = false
+PrintMS = false

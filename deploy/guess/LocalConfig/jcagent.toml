@@ -1,0 +1,21 @@
+title = "jcagent"
+
+FilePath = ""
+FileUrl = ""
+UNDER_RECORD = "直属佣金"
+TEAM_RECORD = "团队极差佣金"
+
+UnderSpec = "0 0 0 * * *" ## 每天 00:00 执行
+TeamSpec = "0 1 0 * * 1" ## 每周一 00:00 执行
+
+FixUserShare = false
+FilterUserShareLevel = false
+InsertUserInfoPid = false
+InitUserParents = false
+
+
+[_Log]
+Level="dbg"
+TraceAllUid=true
+PrintGpid = false
+PrintMS = false

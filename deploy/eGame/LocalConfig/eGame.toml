@@ -1,0 +1,7 @@
+title = "eGame"
+
+[_Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+PrintGpid=true

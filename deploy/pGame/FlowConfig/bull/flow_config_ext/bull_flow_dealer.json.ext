@@ -1,0 +1,198 @@
+[
+  {
+    "x": 20,
+    "y": 288.75,
+    "name": "root",
+    "control_type": "root",
+    "child": [
+      {
+        "x": 140,
+        "y": 288.75,
+        "name": "DealerRoot",
+        "control_type": "selector",
+        "select_type": "event",
+        "child": [
+          {
+            "x": 350,
+            "y": 288.75,
+            "name": "onDealerTick",
+            "control_type": "sequence",
+            "case": "dealer.tick",
+            "event_source": [
+              "2"
+            ],
+            "child": [
+              {
+                "x": 590,
+                "y": 0,
+                "name": "CheckAllPlayerFree",
+                "control_type": "step",
+                "do_script": "bull_flow_dealer.CheckAllPlayerFree"
+              },
+              {
+                "x": 590,
+                "y": 577.5,
+                "name": "SelectStage",
+                "control_type": "selector",
+                "select_type": "step_return",
+                "select_script_name": "bull_flow_dealer.SelectStage",
+                "child": [
+                  {
+                    "x": 920,
+                    "y": 140,
+                    "name": "OnAlleady",
+                    "control_type": "sequence",
+                    "case": "Prepare",
+                    "child": [
+                      {
+                        "x": 1115,
+                        "y": 70,
+                        "name": "OnGameStart",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.OnGameStart"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 140,
+                        "name": "Give4Cards",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.Give4Cards"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 210,
+                        "name": "ChangeToRobBanker",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.ChangeToRobBanker"
+                      }
+                    ]
+                  },
+                  {
+                    "x": 920,
+                    "y": 315,
+                    "name": "RobBanker",
+                    "control_type": "sequence",
+                    "case": "RobBanker",
+                    "child": [
+                      {
+                        "x": 1115,
+                        "y": 280,
+                        "name": "SelectBanker",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.SelectBanker"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 350,
+                        "name": "ChangeToBetting",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.ChangeToBetting"
+                      }
+                    ]
+                  },
+                  {
+                    "x": 920,
+                    "y": 455,
+                    "name": "Betting",
+                    "control_type": "sequence",
+                    "case": "Betting",
+                    "child": [
+                      {
+                        "x": 1115,
+                        "y": 420,
+                        "name": "GiveLastOneCard",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.GiveLastOneCard"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 490,
+                        "name": "ChangeToOpenCard",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.ChangeToOpenCard"
+                      }
+                    ]
+                  },
+                  {
+                    "x": 920,
+                    "y": 735,
+                    "name": "OpenCard",
+                    "control_type": "sequence",
+                    "case": "OpenCard",
+                    "child": [
+                      {
+                        "x": 1115,
+                        "y": 560,
+                        "name": "DoComparisonCards",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.DoComparisonCards"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 630,
+                        "name": "NotifyOpenCards",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.NotifyOpenCards"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 700,
+                        "name": "DoReward",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.DoReward"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 770,
+                        "name": "NotifyReward",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.NotifyReward"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 840,
+                        "name": "SetGameEnd",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.SetGameEnd"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 910,
+                        "name": "ChangeToGameEnd",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.ChangeToGameEnd"
+                      }
+                    ]
+                  },
+                  {
+                    "x": 920,
+                    "y": 1015,
+                    "name": "GameEnd",
+                    "control_type": "sequence",
+                    "case": "GameEnd",
+                    "child": [
+                      {
+                        "x": 1115,
+                        "y": 980,
+                        "name": "CheckIsCountdown",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.CheckIsCountdown"
+                      },
+                      {
+                        "x": 1115,
+                        "y": 1050,
+                        "name": "ChangeToPrepare",
+                        "control_type": "step",
+                        "do_script": "bull_flow_dealer.ChangeToPrepare"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+title = "cpqihao"
+
+####六合彩####
+Mk6TzInterval = 2400    ## app系统投注开始时间间隔(秒) 系统投注开始时间 = 上一期的投注截止时间 + 时间间隔
+Mk6XTKjSec = 76800      ## app系统投注截止时间(秒) 21:20
+Mk6GFKjSec = 77400      ## 官方投注截止时间(秒) 21:30
+MK6Url = "http://api.caipiaokong.cn/lottery/?name=xglhc&format=json&uid=1119892&token=43f85d0a4b7019bedecb616281541028b54bd694" ##六合彩开奖url
+
+OwnGameGid=[3101106,3101108,3101109,3101114,3101115] #自开游戏
+
+QihaoControl = 1 ## 2的时候请求开奖结果
+GetQihaoControlUrl="https://api.iyougame.com/GetQihao" ## 开奖结果的地址
+
+[ResultUrls.3101102]
+Urls=["http://api.caipiaokong.cn/lottery/?name=bjpks&format=json&uid=1119892&token=43f85d0a4b7019bedecb616281541028b54bd694","http://wd.apiplus.net/newly.do?token=t34723333ad86b691k&code=bjpk10&format=json&rows=10"]
+[ResultUrls.3101103]
+Urls=["http://api.caipiaokong.cn/lottery/?name=cqssc&format=json&uid=1119892&token=43f85d0a4b7019bedecb616281541028b54bd694","http://wd.apiplus.net/newly.do?token=t34723333ad86b691k&code=cqssc&format=json&rows=10"]
+[ResultUrls.3101104]
+Urls=["http://api.caipiaokong.cn/lottery/?name=xjssc&format=json&uid=1119892&token=43f85d0a4b7019bedecb616281541028b54bd694","http://wd.apiplus.net/newly.do?token=t34723333ad86b691k&code=xjssc&format=json&rows=10"]
+[ResultUrls.3101105]
+Urls=["http://77tj.org/api/tencent/onlineim","http://www.off0.com/"]
+[ResultUrls.3101107]
+Urls=["http://api.caipiaokong.cn/lottery/?name=gdsyxw&format=json&uid=1119892&token=43f85d0a4b7019bedecb616281541028b54bd694","http://wd.apiplus.net/newly.do?token=t34723333ad86b691k&code=gd11x5&rows=10&format=json"]
+[ResultUrls.3101110]
+Urls=["http://api.caipiaokong.cn/lottery/?name=sdsyydj&format=json&uid=1119892&token=43f85d0a4b7019bedecb616281541028b54bd694","http://wd.apiplus.net/newly.do?token=t34723333ad86b691k&code=sd11x5&rows=10&format=json"]
+
+[Log]
+Level="dbg"
+TraceAllUid=true

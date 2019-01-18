@@ -1,0 +1,19 @@
+# bind port , need restart if change it
+Port = 8001
+# Conn type , auth/noauth/internal
+ConnType = "auth"
+FakeCheckLogin = false
+# Type 1-PtLogin, 2-Janus, 3-NoAuth, 4-InnerReq
+
+SafeUri = [""]
+
+AllowDomains = ["*"]
+AllowReferers=[]
+
+EncryptRsp = false ## 输出内容是否加密
+
+[_Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+PrintGpid=true

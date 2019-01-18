@@ -1,0 +1,15 @@
+
+##用户心跳超时
+UserActiveTimeout = 10 
+
+
+##定时向ecs发送心跳保活
+LockSvrHelloGap = 3
+
+
+##选择N张桌子来随机坐下, 人少的时候只配置成1, 满一桌再开一桌
+TableCountForQuickSelect = 1
+
+
+##打印table日志
+IsLogTable = true

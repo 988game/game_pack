@@ -1,0 +1,149 @@
+[
+  {
+    "x": 20,
+    "y": 367.5,
+    "name": "root",
+    "control_type": "root",
+    "child": [
+      {
+        "x": 140,
+        "y": 367.5,
+        "name": "player root ext",
+        "control_type": "selector",
+        "select_type": "event",
+        "child": [
+          {
+            "x": 425,
+            "y": 227.5,
+            "name": "DoReEnter",
+            "control_type": "sequence",
+            "case": "*en2*",
+            "child": [
+              {
+                "x": 635,
+                "y": 0,
+                "name": "SendEnterCmd",
+                "control_type": "step",
+                "do_script": "bull_flow_player.SendEnterCmd"
+              },
+              {
+                "x": 635,
+                "y": 70,
+                "name": "SendSyncBegin",
+                "control_type": "step",
+                "do_script": "bull_flow_player_ext.SendSyncBegin"
+              },
+              {
+                "x": 635,
+                "y": 315,
+                "name": "SelectPlayerStatus",
+                "control_type": "selector",
+                "select_type": "step_return",
+                "select_script_name": "bull_flow_player_ext.SelectPlayerStatus",
+                "child": [
+                  {
+                    "x": 965,
+                    "y": 140,
+                    "name": "NotInGame",
+                    "control_type": "step",
+                    "do_script": "bull_flow_player.EnterInGame",
+                    "case": "NotInGame"
+                  },
+                  {
+                    "x": 965,
+                    "y": 210,
+                    "name": "EnterOnPrepare",
+                    "control_type": "step",
+                    "case": "Prepare",
+                    "do_script": "bull_flow_player_ext.EnterOnPrepare"
+                  },
+                  {
+                    "x": 965,
+                    "y": 280,
+                    "name": "EnterOnRobBanker",
+                    "control_type": "step",
+                    "do_script": "bull_flow_player_ext.EnterOnRobBanker",
+                    "case": "RobBanker"
+                  },
+                  {
+                    "x": 965,
+                    "y": 350,
+                    "name": "EnterOnBetting",
+                    "control_type": "step",
+                    "case": "Betting",
+                    "do_script": "bull_flow_player_ext.EnterOnBetting"
+                  },
+                  {
+                    "x": 965,
+                    "y": 420,
+                    "name": "EnterOnOpenCard",
+                    "control_type": "step",
+                    "case": "OpenCard",
+                    "do_script": "bull_flow_player_ext.EnterOnOpenCard"
+                  },
+                  {
+                    "x": 965,
+                    "y": 490,
+                    "name": "EnterOnGameEnd",
+                    "control_type": "step",
+                    "do_script": "bull_flow_player.EnterOnGameEnd",
+                    "case": "GameEnd"
+                  }
+                ]
+              },
+              {
+                "x": 635,
+                "y": 385,
+                "name": "SendSyncBnd",
+                "control_type": "step",
+                "do_script": "bull_flow_player_ext.SendSyncEnd"
+              },
+              {
+                "x": 635,
+                "y": 455,
+                "name": "SendLastCall",
+                "control_type": "step",
+                "do_script": "bull_flow_player_ext.SendLastCall"
+              }
+            ]
+          },
+          {
+            "x": 425,
+            "y": 297.5,
+            "name": "DoRefresh",
+            "control_type": "step",
+            "do_script": "bull_flow_player_ext.DoRefresh",
+            "case": "refresh",
+            "event_source": [
+              "1"
+            ]
+          },
+          {
+            "x": 425,
+            "y": 367.5,
+            "name": "DoAutoPlay",
+            "control_type": "step",
+            "do_script": "bull_flow_player_ext.DoAutoPlay",
+            "case": "*au1*"
+          },
+          {
+            "x": 425,
+            "y": 437.5,
+            "name": "DoLeave",
+            "control_type": "step",
+            "do_script": "bull_flow_player_ext.DoLeave",
+            "case": "*lee*"
+          },
+          {
+            "x": 425,
+            "y": 507.5,
+            "name": "DoOffline",
+            "control_type": "step",
+            "do_script": "bull_flow_player_ext.DoOffline",
+            "case": "*fo1*"
+          }
+        ]
+      }
+    ]
+  }
+]

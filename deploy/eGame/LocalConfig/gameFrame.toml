@@ -1,0 +1,8 @@
+
+UserActiveTimeout = 10
+
+LockSvrHelloGap = 3
+
+TableCountForQuickSelect = 1
+
+IsLogTable = true

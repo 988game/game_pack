@@ -1,0 +1,67 @@
+{
+    "3102001": {
+        "GameName": "????4?",
+        "ConfigFile": "game_config_3102001.json",
+	"PercentRate": 0.05,
+	"TickInterval" : 500,
+        "__Base": {
+            "_gsc": "",
+            "GameRidTbl": "",
+            "LuaBasePath": "",
+			
+			
+            "HasLock": 1,
+			"HasCoin": 1,
+			"RobotCount": 4,
+			"AllowAutoEnter" : true, 
+			"TimeForOffline" : 0	
+        },
+		
+		"__FlowConfig":{
+			"Dealer":{
+				"Dealer.default":"../FlowConfig/bull/bull_flow_dealer.json"
+			},
+			"Player":{
+				"Player.default":"../FlowConfig/bull/bull_flow_player.json",
+				"Player.extend":"../FlowConfig/bull/bull_flow_player_ext.json"
+			}
+		},
+		
+		"__Ecs":{
+			"Database":"",
+			"coin_id":0,
+			"lock_id":0
+		}
+		
+    },
+    "3102002":{
+        "GameName":"????2?",
+        "ConfigFile":"game_config_3102002.json",
+        "PercentRate":0.05,
+        "TickInterval":500,
+        "__Base":{
+            "_gsc":"",
+            "GameRidTbl":"",
+            "LuaBasePath":"",
+            "HasLock":1,
+            "HasCoin":1,
+            "RobotCount":2,
+            "AllowAutoEnter":true,
+            "TimeForOffline":0
+        },
+        "__FlowConfig":{
+            "Dealer":{
+                "Dealer.default":"../FlowConfig/bull/bull_flow_dealer.json"
+            },
+            "Player":{
+                "Player.default":"../FlowConfig/bull/bull_flow_player.json",
+                "Player.extend":"../FlowConfig/bull/bull_flow_player_ext.json"
+            }
+        },
+        "__Ecs":{
+            "Database":"",
+            "coin_id":0,
+            "lock_id":0
+        }
+    }
+}

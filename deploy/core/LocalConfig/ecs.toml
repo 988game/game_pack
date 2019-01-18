@@ -1,0 +1,8 @@
+DefaultDatabase="dstars_jingcai"
+ServerHelloTimeout = 5
+AskServerTime = 3
+[_Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+PrintGpid=true

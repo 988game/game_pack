@@ -1,0 +1,27 @@
+title = "jcpay"
+
+HttpPort = 8003
+HttpRealPort = 8033
+NoticeUrl = "https://api.iyougame.com" ## 支付回调接口
+
+## 充值金额判断
+RECHARGE_MIN = 10 ## 充值允许最小金额
+RECHARGE_MAX = 3000 ## 充值允许最大金额
+
+APPLY_MAX_NUMBER = 5 ## 提现每天最大次数
+APPLY_MIN_PRICE = 100 ## 提现最小金额
+APPLY_ALIPAY_MAX_PRICE = 5000 ## 支付宝提现最大金额
+APPLY_BANK_MAX_PRICE = 10000 ## 银行提现最大金额
+
+OPEN_APPLY_SERVICE = 0 ## 1开启 提现手续费
+
+APPLY_SERVICE_CHARGE = 0.02 ## 提现手续费 百分比
+
+ADMIN_RATIO = 2 ## 行政费系数
+FORZEN_POINT = 600 ## 冻结金额
+ALIPAY_DAY_MAX = 1000 ## 支付宝每天提现最高金额
+ALIPAY_DAY_MSG = "支付宝每人每天最多提现1000元，超出请使用银行卡提现" ## 支付宝每天提现最高金额
+
+[_Log]
+Level="dbg"
+TraceAllUid=true

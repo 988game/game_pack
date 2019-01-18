@@ -1,0 +1,44 @@
+title = "jccommon"
+
+HttpPort = 8002
+HttpThirdPort = 8102
+SendCodeMax = 5 ## 单个号码每天发送短信上限
+SendCodeCount = 5000 ## 系统每天发送短信上限
+SmsContent = "%s（1分钟内有效）,请尽快完成验证。" ## 注册短信发送内容
+
+SendSmsType = 0 ## 短信类型 0国内 1国际
+
+
+JC_KEY = "x5cBMRyXK7b5n0B3" ## 金蟾捕鱼KEY
+LK_KEY = "1OXpk8nFx457ItQp" ## 李逵捕鱼KEY
+WK_KEY = "9lvfVrNofyGAISFk" ## 悟空捕鱼KEY
+BT_KEY = "IVnbsm63eLKjYuhst76O" ## option master KEY
+ACOIN_KEY = "V98iAf97oisq55C6d1e3" ##acoin KEY
+
+
+ExchangeMax = 1000000 ## 外接游戏兑换上线
+
+
+SERVER_UPDATE = 0 ## 服务器更新 0不 1更新 登录提示服务器维护中
+
+AllowSrc = ["mini"] ## 允许的SRC 默认
+
+ALLOW_ACODE = ["852", "81", "82", "853", "886", "1", "61", "95", "855", "62", "856", "60", "64", "63", "7", "65", "66", "84"] ## 支持的国际短信
+
+NOT_NEED_TAX = ["acoin"] ## 不需要抽水的外接游戏
+
+SERVER_ADDR = ["s://api.iyougame.com", "s://api.iyougame.com"] ## 登录下发的游戏地址
+SERVER_ADDR_S = ["s://intest.dstars.cc"] ## 登录下发的游戏地址  https
+
+CloseVisitor = false ## 关闭游客登录
+CloseRegiest = false ## 关闭注册
+
+## 第三方接入的KEY
+[[ThirdLoginKey]]
+Key = "cytxgame"
+AppID = 199
+AppKey = "XgpRFF5SVFxWVV4GVwQUWg=="
+
+[_Log]
+Level="dbg"
+TraceAllUid=true

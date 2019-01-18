@@ -1,0 +1,65 @@
+一、数据库创建数据导入
+    创建数据库 dstars_jingcai、dstars_lottery、yx_userinfo、yx_sysdata
+	1. 导入mysql中的文件
+	2. 修改 guess 中  channel_info  bind_url 地址
+	3. 修改 guess 中 server_info  server_addr 地址 和 server_id
+	4. 外接游戏配置
+		捕鱼：http://h5_test3.tientienplay.com:18080/wkfish/index.html?uid=[uid]&token=[token]&ncode=[uname]&sign=[sign]&backurl=[backurl] 
+		比特币外接游戏：http://www.masteroption.com/#/mobileMainpage?app=[app]&account=[uid]&token=[token]&uname=[uname]&ch=[ch]&appid=[appid]&backurl=[backurl]
+	5. 数据库导入
+	    dstars_jingcai
+	        agent_level.sql
+	        dstars_jingcai.sql
+	        game_list.sql
+	        jc_admin_menu.sql
+	        jc_admin_menus.sql
+	        jc_admin_role.sql
+	    dstars_lottery
+	        dstars_lottery.sql
+	    yx_userinfo
+	        yx_userinfo.sql
+	    yx_sysdata
+	        yx_sysdata.sql
+
+二、GlobalConfig修改
+	1. mysql IsEncry = 1 代表加密 加密项：Host User Password
+	2. redis
+	3. nats
+	
+三、各服务配置
+	1. 需要  GlobalConfig 软连接到各服务目录下
+	2. robot
+		STATIC_HEAD_URL = "https://static.iyougame.com/" 头像地址 
+		IMAGE_COUNT = 52 头像总数
+		robot_list.ini 机器人列表，可添加删除
+	3. cpqihao 请求地址部署的需要再次确认
+
+	4. jcuser
+		STATIC_HEAD_URL = "https://static.iyougame.com/" ## 头像地址
+		IMAGE_COUNT = 52 ## 头像总数
+		Point_Reg = 300 ## 注册送3块
+		Point_Bind = 300 ##绑定送3块
+		Point_Phone = 600 ## 手机注册6块
+		ALLOW_ACODE = ["852", "81", "82", "853", "886", "1", "61", "95", "855", "62", "856", "60", "64", "63", "7", "65", "66", "84"] ## 允许的国际短信区号
+	5. jccommon
+		如有更改外接游戏的KEY需要测试
+		ALLOW_ACODE = ["852", "81", "82", "853", "886", "1", "61", "95", "855", "62", "856", "60", "64", "63", "7", "65", "66", "84"] ## 允许的国际短信区号
+		SERVER_ADDR = ["s://api.iyougame.com:8011", "s://api.iyougame.com:8011"] ## 登录下发的游戏地址 
+		SERVER_ADDR_S = ["s://intest.dstars.cc:8011"] ## 登录下发的游戏地址  https 
+		CloseVisitor = false ## 关闭游客登录
+		CloseRegiest = false ## 关闭注册
+		SERVER_UPDATE = 0 ## 服务器更新 0不 1更新 登录提示服务器维护中
+
+	6. jcmanager
+		PURL = "https://888.iyougame.com/reg/?app=[app]&ch=[ch]" ## 渠道推广地址
+		PackManagerUrl = "https://api.iyougame.com/channel" ## 渠道管理后台的地址
+
+四、启动服务 
+    admin 中的gconn是给运营后台使用 ln -ls gconn_dbg gconn-admin.1001 
+	
+五、WEB设置
+	xyxadmin channel 设置
+	{
+		"BASE_LOGIN": "/",  // 登录地址
+		"BASE_API": "/jcmanager" // 请求地址
+	}

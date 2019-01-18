@@ -1,0 +1,19 @@
+# bind port , need restart if change it
+Port = 8006
+# Conn type , auth/noauth/internal
+ConnType = "auth"
+FakeCheckLogin = false
+# Type 1-PtLogin, 2-Janus, 3-NoAuth, 4-InnerReq
+
+SafeUri = [""]
+
+AllowDomains = ["*"]
+AllowReferers=[]
+
+AllowSrc = ["mini_buss", "mini_channel"]
+
+[_Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+PrintGpid=true

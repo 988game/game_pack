@@ -1,0 +1,236 @@
+{
+  "name": "PlayerRoot",
+  "control_type": "selector",
+  "select_type": "event",
+  "child": [
+    {
+      "name": "DoEnter",
+      "control_type": "sequence",
+      "case": "*en1*",
+      "child": [
+        {
+          "name": "SaveUserInfo",
+          "control_type": "step",
+          "do_script": "bull_flow_player.SaveUserInfo"
+        },
+        {
+          "name": "SendEnterCmd",
+          "control_type": "step",
+          "do_script": "bull_flow_player.SendEnterCmd"
+        },
+        {
+          "name": "SelectGameStatus",
+          "control_type": "selector",
+          "select_type": "step_return",
+          "select_script_name": "bull_flow_player.SelectGameStatus",
+          "child": [
+            {
+              "name": "EnterOnPrepare",
+              "control_type": "step",
+              "case": "Prepare",
+              "do_script": "bull_flow_player.EnterOnPrepare"
+            },
+            {
+              "name": "EnterOnGameEnd",
+              "control_type": "step",
+              "do_script": "bull_flow_player.EnterOnGameEnd",
+              "case": "GameEnd"
+            },
+            {
+              "name": "EnterInGame",
+              "control_type": "step",
+              "do_script": "bull_flow_player.EnterInGame",
+              "case": "default"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DoGameStart",
+      "control_type": "sequence",
+      "event_source": [
+        "2"
+      ],
+      "case": "*gs1*",
+      "child": [
+        {
+          "name": "DealCards",
+          "control_type": "step",
+          "do_script": "bull_flow_player.OnDealCards"
+        }
+      ]
+    },
+    {
+      "name": "DoCallReady",
+      "control_type": "sequence",
+      "case": "*cal_rel*",
+      "event_source": [
+        "2"
+      ],
+      "child": [
+        {
+          "name": "CallClientReady",
+          "control_type": "step",
+          "do_script": "bull_flow_player.CallClientReady"
+        },
+        {
+          "name": "StartReadyTimer",
+          "control_type": "step",
+          "do_script": "bull_flow_player.StartReadyTimer"
+        },
+        {
+          "name": "WaitForReady",
+          "control_type": "selector",
+          "select_type": "event",
+          "child": [
+            {
+              "name": "DoReady",
+              "control_type": "step",
+              "case": "*re1*",
+              "do_script": "bull_flow_player.DoReady"
+            },
+            {
+              "name": "OnReadyTimeout",
+              "control_type": "step",
+              "case": "timeout.ready",
+              "event_source": [
+                "2"
+              ],
+              "do_script": "bull_flow_player.DoReady"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnCallRobBanker",
+      "control_type": "sequence",
+      "event_source": [
+        "2"
+      ],
+      "case": "cal_rob",
+      "ctrl_script": ".",
+      "child": [
+        {
+          "name": "CallClientRobBankder",
+          "control_type": "step",
+          "do_script": "bull_flow_player.CallClientRobBankder"
+        },
+        {
+          "name": "StartRobTimer",
+          "control_type": "step",
+          "do_script": "bull_flow_player.StartRobTimer"
+        },
+        {
+          "name": "WaitForRob",
+          "control_type": "selector",
+          "select_type": "event",
+          "child": [
+            {
+              "name": "DoRobBanker",
+              "control_type": "step",
+              "case": "rob",
+              "do_script": "bull_flow_player.DoRobBanker"
+            },
+            {
+              "name": "DoRobTimeout",
+              "control_type": "step",
+              "case": "timeout.RobBanker",
+              "do_script": "bull_flow_player.DoRobBanker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnCallBet",
+      "control_type": "sequence",
+      "case": "cal_bet",
+      "event_source": [
+        "2"
+      ],
+      "ctrl_script": ".",
+      "child": [
+        {
+          "name": "CallClientBet",
+          "control_type": "step",
+          "do_script": "bull_flow_player.CallClientBet"
+        },
+        {
+          "name": "StartBetTimer",
+          "control_type": "step",
+          "do_script": "bull_flow_player.StartBetTimer"
+        },
+        {
+          "name": "WaitForBet",
+          "control_type": "selector",
+          "child": [
+            {
+              "name": "DoBet",
+              "control_type": "step",
+              "case": "bet",
+              "do_script": "bull_flow_player.DoBet"
+            },
+            {
+              "name": "DoBetTimeout",
+              "control_type": "step",
+              "case": "timeout.Betting",
+              "do_script": "bull_flow_player.DoBet",
+              "event_source": [
+                "2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "OnCallOpen",
+      "control_type": "sequence",
+      "case": "cal_open",
+      "event_source": [
+        "2"
+      ],
+      "ctrl_script": ".",
+      "child": [
+        {
+          "name": "DealCards",
+          "control_type": "step",
+          "do_script": "bull_flow_player.OnDealCards"
+        },
+        {
+          "name": "CallClientOpenCard",
+          "control_type": "step",
+          "do_script": "bull_flow_player.CallClientOpenCard"
+        },
+        {
+          "name": "StartBetTimer",
+          "control_type": "step",
+          "do_script": "bull_flow_player.StartOpenTimer"
+        },
+        {
+          "name": "WaitForOpen",
+          "control_type": "selector",
+          "child": [
+            {
+              "name": "DoOpenCard",
+              "control_type": "step",
+              "case": "open",
+              "do_script": "bull_flow_player.DoOpenCard"
+            },
+            {
+              "name": "DoOpenCard",
+              "control_type": "step",
+              "case": "timeout.OpenCard",
+              "do_script": "bull_flow_player.DoOpenCard",
+              "event_source": [
+                "2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

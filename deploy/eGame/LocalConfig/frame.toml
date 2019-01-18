@@ -1,0 +1,5 @@
+[Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+PrintGpid=true

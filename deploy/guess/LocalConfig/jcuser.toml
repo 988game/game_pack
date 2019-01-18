@@ -1,0 +1,21 @@
+title = "jcuser"
+
+SendCodeMax = 5
+SendCodeCount = 5000
+SmsContent = "%s（1分钟内有效）,请尽快完成验证。"
+
+STATIC_HEAD_URL = "https://static.iyougame.com/" ## 头像地址
+IMAGE_COUNT = 52 ## 头像总数
+SendSmsType = 0 ## 短信类型
+
+Point_Reg = 300 ## 注册送3块
+Point_Bind = 300 ##绑定送3块
+Point_Phone = 600 ## 手机注册6块
+BindPhoneMustUid = false ## 绑定手机必须写邀请码 true必须
+
+ALLOW_ACODE = ["852", "81", "82", "853", "886", "1", "61", "95", "855", "62", "856", "60", "64", "63", "7", "65", "66", "84"]
+
+
+[_Log]
+Level="dbg"
+TraceAllUid=true

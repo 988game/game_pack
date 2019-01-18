@@ -1,0 +1,15 @@
+title = "online"
+#hellob保存session head的超时时间,测试期间开大
+HelloTimeout = 10
+#//定时拉取广播消息列表, (秒)
+WaitMsgPullTime = 10
+#//拉取多少秒内的消息(数据库中), <=0 不做时间限制
+WaitMsgTimeout = 1000
+
+
+
+[_Log]
+Level="DBG"
+TraceAllUid=true
+PrintMS = true
+PrintGpid=true

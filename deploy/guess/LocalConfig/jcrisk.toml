@@ -1,0 +1,13 @@
+title = "jcrisk"
+
+RISK_STATUS  = 1      ## 总控盘是否开启 0关闭 1开启 2强杀
+OPEN_CHOICE_RISK = 3 ## 选择开启的 risk模式  1月2周3天4小时
+RISK_HIT = 1000000    ## 选择开启的 risk模式risk盈利金额 分
+UIDS = []
+UIDS_PROS = 10
+
+[_Log]
+Level="dbg"
+TraceAllUid=true
+PrintGpid = false
+PrintMS = false
