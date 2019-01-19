@@ -11,15 +11,15 @@ Default_SEARCH_APPID = 12 ## 运营后台默认显示的APP
 ADD_POINT_DAY_MAX = 1000000 ## 每天添加金币的最高上限
 ADD_POINT_MAX = 50000 ## 单笔最大上限
 UserPointSpec = "0, 0, 0, *, *, *"  ## 每天计算渠道点击数
-PURL = "https://iyougame.com/reg/?app=[app]&ch=[ch]" ## 渠道推广地址
+PURL = "https://game0098.com/reg/?app=[app]&ch=[ch]" ## 渠道推广地址
 App = "jcapp" ##渠道推广地址的APP
-PackManagerUrl = "https://iyougame.com/channel" ## 渠道管理后台的地址
+PackManagerUrl = "https://game0098.com/channel" ## 渠道管理后台的地址
 
 OpenLotteryPrizePwd = "" ## 彩票开奖密码
 
 ## 联运代付才会使用
 IsAutoPayMent = false ## true 的时候自动打款 需要jcextend判断
-AutoPayUrl  =  "http://iyougame.com:8003/notice/reply/wantong" ## 代付回调通知URL
+AutoPayUrl  =  "http://game0098.com:8003/notice/reply/wantong" ## 代付回调通知URL
 
 ## 不需要权限验证的URL
 SafeUri = ["jcmanagerGetGameOptInfo","jcmanagerGetPackAllList","jcmanagerChangePwd", "jcmanagerUserMenu", "jcmanagerAllMenu", "jcmanagerGetRoleSelectList","jcmanagerLogout","jcmanagerGetExternNotify","jcmanagerGetAppList","jcmanagerGetExternGame","jcmanagerGetAppGameList","jcmanagerGetSourceType", "jcmanagerGetRoleSelectList", "jcmanagerUpdataPackPwd", "jcmanagerGetPackInfo","jcmanagerGetAllPackInfo", "jcmanagerGetPackData", "jcmanagerGetUserPackList","jcmanagerGetPackOldInfo","jcmanagerGetLotteryList","jcmanagerGetLotteryOpt","jcmanagerClickPack","jcmanagerGetTotalPackInfo","jcmanagerGetPackShareData", "jcmanagerGetPackUserCount","jcmanagerBindPackBank", "jcmanagerGetBindPackBank" , "jcmanagerGetPackUserPay", "jcmanagerGetPackBalance", "jcmanagerGetPaySourceList"]
