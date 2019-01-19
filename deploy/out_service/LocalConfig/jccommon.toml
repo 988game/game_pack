@@ -27,8 +27,8 @@ ALLOW_ACODE = ["852", "81", "82", "853", "886", "1", "61", "95", "855", "62", "8
 
 NOT_NEED_TAX = ["acoin"] ## 不需要抽水的外接游戏
 
-SERVER_ADDR = ["s://iyougame.com", "s://iyougame.com"] ## 登录下发的游戏地址
-SERVER_ADDR_S = ["s://iyougame.com"] ## 登录下发的游戏地址  https
+SERVER_ADDR = ["s://game0098.com", "s://game0098.com"] ## 登录下发的游戏地址
+SERVER_ADDR_S = ["s://game0098.com"] ## 登录下发的游戏地址  https
 
 CloseVisitor = false ## 关闭游客登录
 CloseRegiest = false ## 关闭注册
