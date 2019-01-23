@@ -28,16 +28,21 @@ ALLOW_ACODE = ["852", "81", "82", "853", "886", "1", "61", "95", "855", "62", "8
 NOT_NEED_TAX = ["acoin"] ## 不需要抽水的外接游戏
 
 SERVER_ADDR = ["s://game0098.com", "s://game0098.com"] ## 登录下发的游戏地址
-SERVER_ADDR_S = ["s://game0098.com"] ## 登录下发的游戏地址  https
+SERVER_ADDR_S = ["s://game0098.cc"] ## 登录下发的游戏地址  https
 
 CloseVisitor = false ## 关闭游客登录
 CloseRegiest = false ## 关闭注册
 
 ## 第三方接入的KEY
 [[ThirdLoginKey]]
-Key = "cytxgame"
-AppID = 199
-AppKey = "XgpRFF5SVFxWVV4GVwQUWg=="
+    Key = "cytxgame"
+    AppID = 199
+    AppKey = "XgpRFF5SVFxWVV4GVwQUWg=="
+
+[[ThirdLoginKey]]
+    Key="youxian"
+    AppID=199
+    AppKey = "A0Ruhu2vfLo9DBbeZq9D4Q=="
 
 [_Log]
 Level="dbg"
