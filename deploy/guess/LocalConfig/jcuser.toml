@@ -8,8 +8,8 @@ STATIC_HEAD_URL = "https://static.iyougame.com/" ## 头像地址
 IMAGE_COUNT = 52 ## 头像总数
 SendSmsType = 0 ## 短信类型
 
-Point_Reg = 300 ## 注册送3块
-Point_Bind = 300 ##绑定送3块
+Point_Reg = 600 ## 注册送6块
+Point_Bind = 0 ##绑定送0块
 Point_Phone = 600 ## 手机注册6块
 BindPhoneMustUid = false ## 绑定手机必须写邀请码 true必须
 
