@@ -1,4 +1,4 @@
 {
-    "BASE_LOGIN": "/", 
-    "BASE_API": "/jcmanager"
+    "BASE_LOGIN": "https://intest.dstars.cc/", 
+    "BASE_API": "https://intest.dstars.cc/jcmanager"
 }

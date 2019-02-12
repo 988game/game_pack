@@ -11,7 +11,7 @@ window.onload = function(){
 	}
 	getPackRegInfo(function(res){
 		if (res._errno == undefined){
-			proMode = res._param.ext_mode || 1
+			proMode = res._param.ext_mode 
 			if (proMode == 0 || proMode == 2){
 				$(".tip").css("display","inline")
 			}
@@ -173,6 +173,11 @@ function submitRegister(callback){
 		}
     })
 }
+
+$('body').on('click', '.btn-downUrl' ,function(e) {
+	e.preventDefault();
+	goToDownload()
+});
 
 $('body').on('click', '.btn-login' ,function(e){
 	goToWebGame();
