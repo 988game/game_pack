@@ -12,7 +12,7 @@ ADD_POINT_DAY_MAX = 1000000 ## 每天添加金币的最高上限
 ADD_POINT_MAX = 50000 ## 单笔最大上限
 UserPointSpec = "0, 0, 0, *, *, *"  ## 每天计算渠道点击数
 PURL = "https://game0098.com/reg/?app=[app]&ch=[ch]" ## 渠道推广地址
-App = "999" ##渠道推广地址的APP
+App = "game_name_en" ##渠道推广地址的APP
 PackManagerUrl = "https://game0098.com/channel" ## 渠道管理后台的地址
 
 OpenLotteryPrizePwd = "" ## 彩票开奖密码
