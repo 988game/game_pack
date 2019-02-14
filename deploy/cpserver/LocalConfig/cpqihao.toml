@@ -8,7 +8,7 @@ MK6Url = "http://api.caipiaokong.cn/lottery/?name=xglhc&format=json&uid=1119892&
 
 OwnGameGid=[3101106,3101108,3101109,3101114,3101115] #自开游戏
 
-QihaoControl = 1 ## 2的时候请求开奖结果
+QihaoControl = 2 ## 2的时候请求开奖结果
 GetQihaoControlUrl="https://api.iyougame.com/GetQihao" ## 开奖结果的地址
 
 [ResultUrls.3101102]
